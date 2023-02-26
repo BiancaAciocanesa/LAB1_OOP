@@ -1,0 +1,23 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int string_to_number(char *c)
+{
+    int cnt=0,number=0;
+    while(c[cnt]!=NULL)
+        number=number*10+c[cnt++]-'0';
+    return number;
+}
+
+int main()
+{
+    char text[60];
+    int sum=0;
+    FILE* fisier=fopen("in.txt","r");
+    while(fscanf(fisier,"%s ",text)!=EOF)
+            sum+=string_to_number(text);
+    printf("%d",sum);
+    fclose(fisier);
+    return 0;
+}
